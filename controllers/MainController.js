@@ -26,4 +26,19 @@ exports.show = (req, res) => {
             response.ok(rows, res);
         }
     });
-}
+};
+
+exports.store = (req, res) => {
+    let name = req.body.name;
+    let nim = req.body.nim;
+    let major = req.body.major;
+
+    connection.query('INSERT INTO mahasiswa (nim, name, major) VALUES (?,?,?)', [name, nim, major], (error, rows, fields) => {
+        if(error) {
+            console.log(error);
+        }else {
+            response.ok('Success, data created.', res);
+        }
+    });
+
+};

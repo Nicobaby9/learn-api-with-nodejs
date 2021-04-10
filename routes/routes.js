@@ -6,4 +6,5 @@ module.exports = function(app) {
     app.route('/').get(jsonku.test);
     app.route('/mahasiswa').get(jsonku.index);
     app.route('/mahasiswa/:id').get(jsonku.show);
+    app.route('/create/mahasiswa').post(jsonku.store);
 };
